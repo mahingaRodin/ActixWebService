@@ -1,16 +1,17 @@
 [package]
-name = "ActixWebTaskService"
+name = "actix_web_task_service"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-actix-web = "^4"
-uuid = { version = "^0.8", features = ["v4"] }
-serde = { version = "^1", features = ["derive"] }
-aws-config = "^0.8"
-aws-sdk-dynamodb = "^0.8"
-env_logger = "^0.8"
-log = "^0.4"
-strum_macros = "^0.24"
-strum = { version = "^0.24", features = ["derive"] }
-derive_more = "^0.99"
+actix-web = "4.4"
+actix-rt = "2.9"
+log = "0.4"
+env_logger = "0.10"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+aws-sdk-dynamodb = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+aws-config = "1.8.8"
