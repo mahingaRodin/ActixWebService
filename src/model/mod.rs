@@ -1,7 +1,7 @@
+use std::option::Option;
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 use chrono::{DateTime, Utc};
-use serde::de::Unexpected::Option;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct Task {
@@ -21,9 +21,9 @@ pub struct CreateTaskRequest {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct UpdateTaskRequest {
-    pub title: Option<String>,
-    pub description: Option<String>,
-    pub completed: Option<bool>,
+    pub title: String,
+    pub description: String,
+    pub completed: bool,
 }
 
 impl Task {
@@ -42,15 +42,10 @@ impl Task {
 
     pub fn update(&mut self, update_task_request: UpdateTaskRequest) {
         let now = Utc::now();
-        if let Some(title) = update_task_request.title {
-            self.title = title;
-        }
-        if let Some(description) = update_task_request.description {
-            self.description = Some(description);
-        }
-
-        if let Some(completed) = update_task_request.completed {
-            self.completed = completed;
-        }
+      //used direct assignment
+        self.title = update_task_request.title;
+        self.description = update_task_request.description;
+        self.completed = update_task_request.completed;
+        self.updated_at = now;
     }
 }
