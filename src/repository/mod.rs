@@ -1,4 +1,5 @@
 pub mod task_repository;
+mod dynamodb_repository;
 
 use aws_sdk_dynamodb::Client;
 use std::env;

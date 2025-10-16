@@ -1,5 +1,4 @@
 use actix_web::{web, HttpResponse, Responder};
-use actix_web::web::ServiceConfig;
 use serde_json::json;
 
 pub fn configure_routes(cfg: &mut web::ServiceConfig) {
