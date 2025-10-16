@@ -34,7 +34,7 @@ impl TaskRepository {
         Ok(())
     }
 
-    pub async fn get_task(&self, task_id: &str) -> Result<Option<Task>, Box<dyn std::error::Error>> {
+    pub async fn get_task(&self, task_id: (String)) -> Result<Option<Task>, Box<dyn std::error::Error>> {
         let request = self.client
             .get_item()
             .table_name(&self.table_name)
