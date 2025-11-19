@@ -34,7 +34,7 @@ impl TaskRepository {
         Ok(())
     }
 
-    pub async fn get_task(&self, task_id: (String)) -> Result<Option<Task>, Box<dyn std::error::Error>> {
+    pub async fn get_task(&self, task_id: String) -> Result<Option<Task>, Box<dyn std::error::Error>> {
         let request = self.client
             .get_item()
             .table_name(&self.table_name)
@@ -93,7 +93,7 @@ impl TaskRepository {
 
 
     fn item_to_task(item: &HashMap<String, AttributeValue>) -> Result<Task, Box<dyn std::error::Error>> {
-        use chrono::TimeZone;
+        // use chrono::TimeZone;
 
         let id = item.get("id")
             .and_then(|v| v.as_s().ok())
